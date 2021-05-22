@@ -1,0 +1,13 @@
+@font-face {
+  font-family: ottoattack;
+  font-weight: 400;
+  src: url('~assets/fonts/ottoattack.woff2') format('woff2'),
+       url('~assets/fonts/ottoattack.woff') format('woff');
+}
+
+@font-face {
+  font-family: cothamsans;
+  font-weight: 400;
+  src: url('~assets/fonts/cothamsans.woff2') format('woff2'),
+       url('~assets/fonts/cothamsans.woff') format('woff');
+}

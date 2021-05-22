@@ -1,0 +1,35 @@
+/* purgecss start ignore */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+/* purgecss end ignore */
+@import 'tailwindcss/utilities';
+
+/* add fonts here */
+@import '~assets/css/fonts';
+
+:root {
+  --color-primary: #2731fc;
+  --color-secondary: #dfee35;
+}
+
+
+body{
+  background: black;
+}
+
+.hue{
+  background-image: -webkit-linear-gradient(0deg, var(--color-primary), var(--color-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: hue 60s infinite linear;
+}
+
+
+@keyframes hue {
+  from {
+    filter: hue-rotate(0deg);
+  }
+  to {
+    filter: hue-rotate(-360deg);
+  }
+}
