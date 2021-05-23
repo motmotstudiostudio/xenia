@@ -9,7 +9,7 @@
     <div class="text-right">
       <nav class="text-2xl hue">
         <ul>
-          <li><nuxt-link to="/about" class="block">About</nuxt-link></li>
+          <li><nuxt-link to="/about">About</nuxt-link></li>
           <li><a href="">Contact</a></li>
         </ul>
       </nav>
