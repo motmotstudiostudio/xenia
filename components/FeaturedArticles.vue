@@ -1,13 +1,13 @@
 <template>
   <div v-editable="blok">
-    <nav class="tablehead grid grid-cols-1 lg:grid-cols-8 pb-2">
-      <div class="col-span-1 lg:col-span-4">
+    <nav class="tablehead hidden md:grid grid-cols-1 md:grid-cols-8 pb-2">
+      <div class="col-span-1 md:col-span-4">
        Title
       </div>
       <div class="col-span-1">
        What
       </div>
-      <div class="col-span-1 lg:col-span-2">
+      <div class="col-span-1 md:col-span-2">
        Where
       </div>
       <div class="col-span-1">
