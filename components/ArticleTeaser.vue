@@ -1,5 +1,5 @@
 <template>
-  <li class="py-4 border-b-2 border-gray-800">
+  <li class="py-4">
     <a
       v-if="articleContent.link.linktype == 'url'"
       :href="articleContent.link.url"

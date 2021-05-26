@@ -1,16 +1,17 @@
 <template>
-  <header class="grid grid-cols-1 lg:grid-cols-3 p-8">
-    <div class="col-span-2">
-      <h1 class="text-7xl font-serif hue">
+  <header class="grid grid-cols-1 lg:grid-cols-2 p-8">
+    <div>
+      <h1 class="">
         <nuxt-link to="/">
           Xenia Benivolski
         </nuxt-link></h1>
     </div>
-    <div class="text-right">
-      <nav class="text-2xl hue">
+    <div>
+      <nav>
         <ul>
-          <li><nuxt-link to="/about">About</nuxt-link></li>
-          <li><a href="">Contact</a></li>
+          <li class="inline-block"><a href="mailto:xeniaster@gmail.com">xeniaster@gmail.com</a></li>
+          <li class="inline-block"><a href="">bio</a></li>
+          <li class="inline-block"><a href="">cv</a></li>
         </ul>
       </nav>
     </div>

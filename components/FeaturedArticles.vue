@@ -1,6 +1,6 @@
 <template>
   <div v-editable="blok">
-    <nav class="grid grid-cols-1 lg:grid-cols-8 hue pb-2 border-b-2 border-gray-500">
+    <nav class="tablehead grid grid-cols-1 lg:grid-cols-8 pb-2">
       <div class="col-span-1 lg:col-span-4">
        Title
       </div>
@@ -17,7 +17,7 @@
 
       <ul
         v-for="article in sortedArticles" :key="article._uid"
-        class="worklist text-gray-500 text-2xl">
+        class="worklist">
         <article-teaser
           v-if="article.content"
           :article-slug="article.full_slug"

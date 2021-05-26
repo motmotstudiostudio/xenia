@@ -6,8 +6,7 @@ module.exports = {
   mode: 'jit',
   theme: {
     fontFamily: {
-      sans: ['cothamsans', 'Arial'],
-      serif: ['ottoattack', 'Arial']
+      sans: ['bluunext', 'Arial']
     },
     // colors: {
     //   primary: 'var(--color-primary)',
