@@ -15,14 +15,14 @@
       </div>
     </nav>
 
-      <ul
-        v-for="article in sortedArticles" :key="article._uid"
-        class="worklist">
+      <ul class="worklist">
+       <li class="py-4" v-for="article in sortedArticles" :key="article._uid">
         <article-teaser
           v-if="article.content"
           :article-slug="article.full_slug"
           :article-content="article.content"/>
         <p v-else class="px-4 py-2 text-white bg-red-700 text-center rounded">This content loads on save. <strong>Save the entry & reload.</strong></p>
+      </li>
       </ul>
 
   </div>

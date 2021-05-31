@@ -1,13 +1,13 @@
 <template>
   <div
     v-editable="blok"
-    class="p-8 text-gray-800">
-    <h1 class="">{{ blok.title }}</h1>
+    class="p-8">
+    <h1 class="mb-6">{{ blok.title }}</h1>
     <div class="">
-      <p>{{ blok.what }}</p>
+      <!-- <p>{{ blok.what }}</p>
       <p>{{ blok.where }}</p>
       <p>{{ blok.when }}</p>
-      <p>{{ blok.link.url }}</p>
+      <p>{{ blok.link.url }}</p> -->
       <rich-text-renderer
         :document="blok.body"
       />

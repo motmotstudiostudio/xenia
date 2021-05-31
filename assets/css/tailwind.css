@@ -10,12 +10,27 @@
 :root {
   --color-primary: #2731fc;
   --color-secondary: #dfee35;
+  --bg: #ffffff;
+  --color: blue;
+}
+
+.dark-mode{
+  --bg: blue;
+  --color: #ffffff;
+  --border: #dfee35;
+}
+
+.light-mode{
+  --bg: #ffffff;
+  --color: blue;
+  --border: #2731fc;
 }
 
 
 body{
-  background: aliceblue;
-  color: blue;
+  background-color: var(--bg);
+  color: var(--color);
+  transition: background-color 0.3s;
   /* background: #2731fc;
   background: -moz-linear-gradient(top,  #2731fc 0%, #dfee35 100%);
   background: -webkit-linear-gradient(top,  #2731fc 0%,#dfee35 100%);
@@ -23,11 +38,27 @@ body{
 
 }
 
+nav.switcher{
+  right: 2rem;
+  top: 2rem;
+}
 
-nav ul li:after{
+nav.switcher ul li{
+  display: inline-block;
+  cursor: pointer;
+  font-size: .85rem;
+}
+
+nav.switcher ul li:after{
   content: "-";
   display: inline-block;
-  margin: 0 1rem;
+  margin: 0 .5rem;
+}
+
+nav.main-navigation ul li:after{
+  content: "-";
+  display: inline-block;
+  margin: 0 .5rem;
 }
 
 nav ul li:last-child:after{
@@ -56,9 +87,9 @@ a:hover{
 }
 
 .worklist li{
-  border-bottom: 1px dotted var(--color-primary);
+  border-bottom: 1px dotted var(--border);
 }
 
 .tablehead{
-  border-bottom: 1px solid var(--color-primary);
+  border-bottom: 1px solid var(--border);
 }

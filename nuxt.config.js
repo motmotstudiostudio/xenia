@@ -26,7 +26,8 @@ export default {
   plugins: [
       '~/plugins/components',
       '~/plugins/composition-api.js',
-      '~/plugins/storyblok-rich-text-renderer.js'
+      '~/plugins/storyblok-rich-text-renderer.js',
+
   ],
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -34,6 +35,7 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     '@nuxtjs/tailwindcss',
+    '@nuxtjs/color-mode'
   ],
 
   modules: [
