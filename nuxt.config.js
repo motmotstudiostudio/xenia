@@ -15,7 +15,10 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+    ],
+    script: [
+      {  src: "/index.js", },    
+    ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -24,7 +27,8 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-      '~/plugins/components',
+      '~/plugins/client-only.js',
+      '~/plugins/components.js',
       '~/plugins/composition-api.js',
       '~/plugins/storyblok-rich-text-renderer.js',
 

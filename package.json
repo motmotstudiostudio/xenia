@@ -15,7 +15,10 @@
     "axios": "^0.21.1",
     "core-js": "^3.9.1",
     "nuxt": "^2.15.3",
-    "storyblok-nuxt": "^2.0.1"
+    "storyblok-nuxt": "^2.0.1",
+    "gsap": "^3.3.4",
+    "imagesloaded": "^4.1.4",
+    "locomotive-scroll": "^3.5.4"
   },
   "devDependencies": {
     "@nuxtjs/color-mode": "^2.0.9",

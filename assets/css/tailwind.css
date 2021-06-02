@@ -6,6 +6,7 @@
 
 /* add fonts here */
 @import '~assets/css/fonts';
+@import '~assets/css/menu';
 
 :root {
   --color-primary: #2731fc;
@@ -88,6 +89,14 @@ a:hover{
 
 .worklist li{
   border-bottom: 1px dotted var(--border);
+}
+
+.worklist li a{
+  transition: all 0.5s ease;
+}
+
+.worklist li a:hover{
+  font-size: 150%;
 }
 
 .tablehead{

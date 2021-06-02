@@ -16,14 +16,48 @@
     </nav>
 
       <ul class="worklist">
-       <li class="py-4" v-for="article in sortedArticles" :key="article._uid">
-        <article-teaser
-          v-if="article.content"
-          :article-slug="article.full_slug"
-          :article-content="article.content"/>
-        <p v-else class="px-4 py-2 text-white bg-red-700 text-center rounded">This content loads on save. <strong>Save the entry & reload.</strong></p>
+       <li class="py-4" v-for="article in sortedArticles" :key="article._uid" data-fx="xenia">
+         <a
+           v-if="article.content.link.linktype == 'url'"
+           :href="article.content.link.url"
+           target="_blank"
+           class="grid grid-cols-1 md:grid-cols-8 hue"
+           :data-img="article.content.image.filename">
+           <div class="col-span-1 md:col-span-4">
+             {{ article.content.title }}
+           </div>
+           <div class="col-span-1">
+             {{ article.content.what }}
+           </div>
+           <div class="col-span-1 md:col-span-2">
+             {{ article.content.where }}
+           </div>
+           <div class="col-span-1">
+             {{ article.content.when }}
+           </div>
+         </a>
+         <nuxt-link
+           v-if="article.content.link.linktype == 'story'"
+           :to="`articles/` + article.slug"
+           class="grid grid-cols-1 md:grid-cols-8 hue"
+           :data-img="article.content.image.filename">
+           <div class="col-span-1 md:col-span-4">
+             {{ article.content.title }}
+           </div>
+           <div class="col-span-1">
+             {{ article.content.what }}
+           </div>
+           <div class="col-span-1 md:col-span-2">
+             {{ article.content.where }}
+           </div>
+           <div class="col-span-1">
+             {{ article.content.when }}
+           </div>
+         </nuxt-link>
       </li>
       </ul>
+
+
 
   </div>
 </template>
