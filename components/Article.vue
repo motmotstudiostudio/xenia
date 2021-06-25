@@ -2,12 +2,8 @@
   <div
     v-editable="blok"
     class="p-8">
-    <h1 class="mb-6">{{ blok.title }}</h1>
-    <div class="">
-      <!-- <p>{{ blok.what }}</p>
-      <p>{{ blok.where }}</p>
-      <p>{{ blok.when }}</p>
-      <p>{{ blok.link.url }}</p> -->
+    <div class="main-content">
+      <h1 class="mb-6">{{ blok.title }}</h1>
       <rich-text-renderer
         :document="blok.body"
       />

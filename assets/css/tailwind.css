@@ -50,6 +50,11 @@ nav.switcher ul li{
   font-size: .85rem;
 }
 
+/* nav.switcher ul li.selected{
+  border-bottom: 1px solid var(--border);
+} */
+
+
 nav.switcher ul li:after{
   content: "-";
   display: inline-block;
@@ -95,10 +100,14 @@ a:hover{
   transition: all 0.5s ease;
 }
 
-.worklist li a:hover{
-  font-size: 150%;
-}
-
 .tablehead{
   border-bottom: 1px solid var(--border);
+}
+
+.asc:after{
+  content: "\25B2"
+}
+
+.desc:after{
+  content: "\25BC"
 }

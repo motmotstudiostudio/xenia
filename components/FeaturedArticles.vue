@@ -1,7 +1,7 @@
 <template>
   <div v-editable="blok">
     <nav class="tablehead hidden md:grid grid-cols-1 md:grid-cols-8 pb-2">
-      <div class="col-span-1 md:col-span-4">
+      <div class="col-span-1 md:col-span-4" @click="sort('title')" v-bind:class="[sortBy === 'title' ? sortDirection : '']">
        Title
       </div>
       <div class="col-span-1">
@@ -10,48 +10,48 @@
       <div class="col-span-1 md:col-span-2">
        Where
       </div>
-      <div class="col-span-1">
+      <div class="col-span-1" @click="sort('when')" v-bind:class="[sortBy === 'when' ? sortDirection : '']">
        When
       </div>
     </nav>
 
       <ul class="worklist">
-       <li class="py-4" v-for="article in sortedArticles" :key="article._uid" data-fx="xenia">
+       <li class="py-4" v-for="post in sortedArticles" :key="post.id" data-fx="xenia">
          <a
-           v-if="article.content.link.linktype == 'url'"
-           :href="article.content.link.url"
+           v-if="post.link.linktype == 'url'"
+           :href="post.link.url"
            target="_blank"
            class="grid grid-cols-1 md:grid-cols-8 hue"
-           :data-img="article.content.image.filename">
+           :data-img="post.image.filename">
            <div class="col-span-1 md:col-span-4">
-             {{ article.content.title }}
+             {{ post.title }}
            </div>
            <div class="col-span-1">
-             {{ article.content.what }}
+             {{ post.what }}
            </div>
            <div class="col-span-1 md:col-span-2">
-             {{ article.content.where }}
+             {{ post.where }}
            </div>
            <div class="col-span-1">
-             {{ article.content.when }}
+             {{ post.when }}
            </div>
          </a>
          <nuxt-link
-           v-if="article.content.link.linktype == 'story'"
-           :to="`articles/` + article.slug"
+           v-if="post.link.linktype == 'story'"
+           :to="`articles/` + post.slug"
            class="grid grid-cols-1 md:grid-cols-8 hue"
-           :data-img="article.content.image.filename">
+           :data-img="post.image.filename">
            <div class="col-span-1 md:col-span-4">
-             {{ article.content.title }}
+             {{ post.title }}
            </div>
            <div class="col-span-1">
-             {{ article.content.what }}
+             {{ post.what }}
            </div>
            <div class="col-span-1 md:col-span-2">
-             {{ article.content.where }}
+             {{ post.where }}
            </div>
            <div class="col-span-1">
-             {{ article.content.when }}
+             {{ post.when }}
            </div>
          </nuxt-link>
       </li>
@@ -70,6 +70,20 @@ export default {
       required: true
     }
   },
+  data() {
+    return {
+      sortBy: 'title',
+      sortDirection: 'asc',
+    }
+  },
+  methods: {
+    sort: function(s){
+      if(s === this.sortBy) {
+          this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
+      }
+      this.sortBy = s;
+    }
+  },
   computed: {
     sortedArticles() {
       // Load reference data/content from store
@@ -78,12 +92,33 @@ export default {
       })
 
       // Enable the ordering of the article previews
-      featuredArticles.sort((a, b) => {
-        return this.blok.articles.indexOf(a.uuid) - this.blok.articles.indexOf(b.uuid);
+      // featuredArticles.sort((a, b) => {
+      //   return this.blok.articles.indexOf(a.uuid) - this.blok.articles.indexOf(b.uuid);
+      // })
+
+      let posts = featuredArticles.map((post) => {
+        return{
+          id: post._uid,
+          link: post.content.link,
+          slug: post.slug,
+          image: post.content.image,
+          title: post.content.title,
+          what: post.content.what,
+          where: post.content.where,
+          when: post.content.when
+        }
       })
 
-      return featuredArticles
+      posts.sort((p1,p2) => {
+          let modifier = 1;
+          if(this.sortDirection === 'desc') modifier = -1;
+          if(p1[this.sortBy] < p2[this.sortBy]) return -1 * modifier; if(p1[this.sortBy] > p2[this.sortBy]) return 1 * modifier;
+          return 0;
+      });
+
+      return posts
     }
-  }
+  },
+
 }
 </script>
