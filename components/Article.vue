@@ -4,9 +4,11 @@
     class="p-8">
     <div class="main-content">
       <h1 class="mb-6">{{ blok.title }}</h1>
-      <rich-text-renderer
-        :document="blok.body"
-      />
+      <component
+        v-for="blok in blok.body"
+        :key="blok._uid"
+        :blok="blok"
+        :is="blok.component" />
     </div>
   </div>
 </template>

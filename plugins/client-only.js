@@ -1,9 +1,5 @@
 import Vue from 'vue'
 
-Vue.prototype.$sortMe = () => {
-
-}
-
 Vue.prototype.$hoverMe = () => {
   /*!
    * VERSION: 2.1.2

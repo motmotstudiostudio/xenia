@@ -1,16 +1,15 @@
 <template>
-  <main class="subpage">
-    <Article :blok="story.content"/>
+  <main class="mb-8 subpage">
+    <component
+      v-if="story.content.component"
+      :key="story.content._uid"
+      :blok="story.content"
+      :is="story.content.component" />
   </main>
 </template>
 
 <script>
-import Article from '~/components/Article.vue'
-
 export default {
-  components: {
-    Article
-  },
   data () {
     return {
       story: { content: {} }
@@ -20,7 +19,6 @@ export default {
     this.$storybridge(() => {
       const storyblokInstance = new StoryblokBridge()
 
-      // Use the input event for instant update of content
       storyblokInstance.on('input', (event) => {
         console.log(this.story.content)
         if (event.story.id === this.story.id) {
@@ -28,9 +26,7 @@ export default {
         }
       })
 
-      // Use the bridge to listen the events
       storyblokInstance.on(['published', 'change'], (event) => {
-        // window.location.reload()
         this.$nuxt.$router.go({
           path: this.$nuxt.$router.currentRoute,
           force: true,
@@ -39,10 +35,9 @@ export default {
     })
   },
   asyncData (context) {
-    // Load the JSON from the API
     let version = context.query._storyblok || context.isDev ? 'draft' : 'published'
 
-    return context.app.$storyapi.get(`cdn/stories/articles/${context.params.slug}`, {
+    return context.app.$storyapi.get(`cdn/stories/${context.params.slug}`, {
       version: version
     }).then((res) => {
       return res.data

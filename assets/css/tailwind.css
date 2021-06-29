@@ -28,6 +28,13 @@
 }
 
 
+@layer base {
+  h1, h2, h3, h4, p, ul{
+    margin-bottom: 1rem;
+  }
+}
+
+
 body{
   background-color: var(--bg);
   color: var(--color);
@@ -102,6 +109,7 @@ a:hover{
 
 .tablehead{
   border-bottom: 1px solid var(--border);
+  cursor: pointer;
 }
 
 .asc:after{
@@ -110,4 +118,8 @@ a:hover{
 
 .desc:after{
   content: "\25BC"
+}
+
+.subpage a{
+  border-bottom: 1px solid var(--border);
 }

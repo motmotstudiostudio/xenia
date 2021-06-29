@@ -12,8 +12,8 @@
     <div class="md:text-center">
       <nav class="main-navigation">
         <ul>
-          <li class="inline-block"><a href="">bio</a></li>
-          <li class="inline-block"><a href="">cv</a></li>
+          <li class="inline-block"><nuxt-link to="/bio">bio</nuxt-link></li>
+          <li class="inline-block"><nuxt-link to="/cv">cv</nuxt-link></li>
         </ul>
       </nav>
     </div>
