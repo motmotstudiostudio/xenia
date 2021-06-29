@@ -1,5 +1,8 @@
 <template>
-  <footer class="p-8 grid grid-cols-1 md:grid-cols-2">
+  <footer class="md:p-8 p-4 grid grid-cols-1 md:grid-cols-2">
+    <div class="fixed right bottom mobile-show">
+      <a href="#top" class="text-4xl">&#8593;</a>
+    </div>
     <div>
       <p>{{currentDate.getFullYear()}} © Xenia Benivolski</p>
     </div>

@@ -1,5 +1,5 @@
 <template>
-  <header class="grid grid-cols-1 md:grid-cols-4 p-8">
+  <header id="top" class="grid grid-cols-1 md:grid-cols-4 md:p-8 p-4">
     <div class="">
       <h1 class="">
         <nuxt-link to="/">
@@ -11,13 +11,13 @@
     </div>
     <div class="md:text-center">
       <nav class="main-navigation">
-        <ul>
+        <!-- <ul>
           <li class="inline-block"><nuxt-link to="/bio">bio</nuxt-link></li>
           <li class="inline-block"><nuxt-link to="/cv">cv</nuxt-link></li>
-        </ul>
+        </ul> -->
       </nav>
     </div>
-    <nav class="switcher fixed">
+    <nav class="switcher fixed md:p-8 p-4 right top">
       <ul>
         ( <li v-for="color of colors"
             :key="color"
@@ -46,6 +46,6 @@
           selected: color === this.$colorMode.value
         }
       }
-    }
+    },
   }
 </script>

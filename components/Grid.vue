@@ -5,7 +5,7 @@
     <li
       :key="blok._uid"
       v-for="blok in blok.columns"
-      class="md:flex-auto md:pr-6">
+      class="grid-item md:flex-auto md:pr-6">
       <component :blok="blok" :is="blok.component" />
     </li>
   </ul>

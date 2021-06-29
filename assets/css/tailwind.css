@@ -27,11 +27,45 @@
   --border: #2731fc;
 }
 
+html {
+   scroll-behavior: smooth;
+}
 
 @layer base {
   h1, h2, h3, h4, p, ul{
     margin-bottom: 1rem;
   }
+}
+
+.fixed{
+  position: fixed;
+}
+
+.left{
+  left: 0;
+}
+
+.right{
+  right: 0;
+}
+
+.top{
+  top: 0;
+}
+
+.bottom{
+  bottom: 0;
+}
+
+.mobile-show{
+  display: block;
+}
+
+@media screen and (min-width: 768px){
+  .mobile-show{
+    display: none;
+  }
+
 }
 
 
@@ -44,11 +78,6 @@ body{
   background: -webkit-linear-gradient(top,  #2731fc 0%,#dfee35 100%);
   background: linear-gradient(to bottom,  #2731fc 0%,#dfee35 100%); */
 
-}
-
-nav.switcher{
-  right: 2rem;
-  top: 2rem;
 }
 
 nav.switcher ul li{
@@ -122,4 +151,8 @@ a:hover{
 
 .subpage a{
   border-bottom: 1px solid var(--border);
+}
+
+.subpage .grid-item:last-child{
+  padding-right: 0;
 }

@@ -1,7 +1,7 @@
 <template>
   <div
     v-editable="blok"
-    class="p-8">
+    class="p-4 md:p-8">
     <div class="main-content">
       <h1 class="mb-6">{{ blok.title }}</h1>
       <component
