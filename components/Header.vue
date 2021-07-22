@@ -11,10 +11,10 @@
     </div>
     <div class="md:text-center">
       <nav class="main-navigation">
-        <!-- <ul>
+        <ul>
           <li class="inline-block"><nuxt-link to="/bio">bio</nuxt-link></li>
           <li class="inline-block"><nuxt-link to="/cv">cv</nuxt-link></li>
-        </ul> -->
+        </ul>
       </nav>
     </div>
     <nav class="switcher fixed md:p-8 p-4 right top">
