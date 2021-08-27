@@ -72,8 +72,8 @@ export default {
   },
   data() {
     return {
-      sortBy: 'title',
-      sortDirection: 'asc',
+      sortBy: 'when',
+      sortDirection: 'desc',
     }
   },
   methods: {
@@ -83,7 +83,12 @@ export default {
       }
       this.sortBy = s;
     }
+    
+
   },
+  // mounted () {
+  //   this.$hoverMe();
+  // },
   computed: {
     sortedArticles() {
       // Load reference data/content from store

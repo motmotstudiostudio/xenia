@@ -3,15 +3,10 @@
 */
 
 module.exports = {
-  mode: 'jit',
   theme: {
     fontFamily: {
       sans: ['bluunext', 'Arial']
     },
-    // colors: {
-    //   primary: 'var(--color-primary)',
-    //   secondary: 'var(--color-secondary)'
-    // }
   },
   variants: {},
   plugins: [

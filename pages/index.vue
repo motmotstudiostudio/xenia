@@ -16,7 +16,6 @@ export default {
     }
   },
   mounted () {
-    this.$hoverMe();
     this.$storybridge(() => {
       const storyblokInstance = new StoryblokBridge()
 
