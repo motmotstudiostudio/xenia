@@ -83,12 +83,12 @@ export default {
       }
       this.sortBy = s;
     }
-    
+
 
   },
-  // mounted () {
-  //   this.$hoverMe();
-  // },
+  mounted () {
+    this.$hoverMe();
+  },
   computed: {
     sortedArticles() {
       // Load reference data/content from store
