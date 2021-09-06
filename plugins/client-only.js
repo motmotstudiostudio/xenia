@@ -1,5 +1,7 @@
 import Vue from 'vue'
 
+let hoverElements = [];
+
 Vue.prototype.$hoverMe = () => {
   /*!
    * VERSION: 2.1.2
@@ -46,12 +48,20 @@ Vue.prototype.$hoverMe = () => {
 
       class HoverImgFxxenia {
         constructor(el) {
-            this.DOM = {el: el};
+            this.DOM = { el: el };
+            
+            const dataImg = this.DOM.el.getAttribute("data-img");
+            if (el.id == "you-cant-trust-music") {
+                console.log("start-----------")
+                console.log(this.DOM.el)
+                console.log(this.DOM.el.getAttribute('data-img'));
+                console.log("end-----------")
+            }
 
             this.DOM.reveal = document.createElement('div');
             this.DOM.reveal.className = 'hover-reveal';
             this.DOM.reveal.style.overflow = 'hidden';
-            this.DOM.reveal.innerHTML = `<div class="hover-reveal__deco"></div><div class="hover-reveal__inner"><div class="hover-reveal__img" style="background-image:url(${this.DOM.el.dataset.img})"></div></div>`;
+            this.DOM.reveal.innerHTML = `<div class="hover-reveal__deco"></div><div class="hover-reveal__inner"><div class="hover-reveal__img" style="background-image:url(${dataImg})"></div></div>`;
             this.DOM.el.appendChild(this.DOM.reveal);
             this.DOM.revealInner = this.DOM.reveal.querySelector('.hover-reveal__inner');
             this.DOM.revealInner.style.overflow = 'hidden';
@@ -59,7 +69,14 @@ Vue.prototype.$hoverMe = () => {
             this.DOM.revealImg = this.DOM.revealInner.querySelector('.hover-reveal__img');
 
             this.initEvents();
-        }
+          }
+          destroy() {
+            this.DOM.el.removeEventListener("mouseenter", this.mouseenterFn);
+            this.DOM.el.removeEventListener("mousemove", this.mousemoveFn);
+            this.DOM.el.removeEventListener("mouseleave", this.mouseleaveFn);
+              
+            this.DOM.reveal.remove();
+          }
         initEvents() {
             this.positionElement = (ev) => {
                 const mousePos = getMousePos(ev);
@@ -158,10 +175,16 @@ Vue.prototype.$hoverMe = () => {
             }), 'begin')
         }
       }
-
-      [...document.querySelectorAll('[data-fx="xenia"] > a, a[data-fx="xenia"]')].forEach(link => new HoverImgFxxenia(link));
-
-
+      
+      const targets = document.querySelectorAll(
+        '[data-fx="xenia"] > a, a[data-fx="xenia"]'
+        );
+        
+      hoverElements.forEach(x => x.destroy())
+      hoverElements = [];
+      targets.forEach(link =>
+        hoverElements.push(new HoverImgFxxenia(link))
+      );
   }
 
 }
