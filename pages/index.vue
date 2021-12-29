@@ -19,7 +19,6 @@ export default {
     this.$storybridge(() => {
       const storyblokInstance = new StoryblokBridge()
 
-      // Use the input event for instant update of content
       storyblokInstance.on('input', (event) => {
         console.log(this.story.content)
         if (event.story.id === this.story.id) {
@@ -27,9 +26,7 @@ export default {
         }
       })
 
-      // Use the bridge to listen the events
       storyblokInstance.on(['published', 'change'], (event) => {
-        // window.location.reload()
         this.$nuxt.$router.go({
           path: this.$nuxt.$router.currentRoute,
           force: true,
@@ -38,7 +35,6 @@ export default {
     })
   },
   async fetch(context) {
-    // Loading reference data - Articles in our case
     if(context.store.state.articles.loaded !== '1') {
       let articlesRefRes = await context.app.$storyapi.get(`cdn/stories/`, { starts_with: 'articles/', version: 'published' })
       context.store.commit('articles/setArticles', articlesRefRes.data.stories)
@@ -46,13 +42,8 @@ export default {
     }
   },
   asyncData (context) {
-    // // This what would we do in real project
-    // const version = context.query._storyblok || context.isDev ? 'draft' : 'published'
-    // const fullSlug = (context.route.path == '/' || context.route.path == '') ? 'home' : context.route.path
-
-    // Load the JSON from the API - loadig the home content (index page)
     return context.app.$storyapi.get('cdn/stories/home', {
-      version: 'draft'
+      version: 'published'
     }).then((res) => {
       return res.data
     }).catch((res) => {
