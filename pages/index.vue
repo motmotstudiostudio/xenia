@@ -36,7 +36,12 @@ export default {
   },
   async fetch(context) {
     if(context.store.state.articles.loaded !== '1') {
-      let articlesRefRes = await context.app.$storyapi.get(`cdn/stories/`, { starts_with: 'articles/', version: 'published' })
+      let articlesRefRes = await context.app.$storyapi.get(`cdn/stories/`, {
+         version: 'published',
+         per_page: 100,
+         page: 1,
+         starts_with: "articles/"
+       })
       context.store.commit('articles/setArticles', articlesRefRes.data.stories)
       context.store.commit('articles/setLoaded', '1')
     }
